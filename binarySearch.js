@@ -1,6 +1,7 @@
 
 //binary Search must be sorted
 const binarySearch = (numbersArray, searchElement)=>{
+    let count = 0;
     // this is the current element value we are using
     let currentElement;
     //this is the current element value index
@@ -21,17 +22,21 @@ const binarySearch = (numbersArray, searchElement)=>{
         if(currentElement < searchElement){
             // we set the min index as the currentIndex so that it becomes the new minIndex
             minIndex = currentIndex + 1;
+            count++;
         }
         else if(currentElement > searchElement){
             //we set the max index as the currentIndex so that it becomes the new maxIndex
             maxIndex = currentIndex - 1;
+            count++;
         }
         else{
             //this is when the currentElement is equal to the searchElement. if so we return the index of that element
+            count++;
             console.log("found target element");
             return currentIndex;
         }
         }
+        return count;
 }
 
 const arr = [1,2,3,4,5];
