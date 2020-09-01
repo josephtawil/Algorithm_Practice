@@ -1,6 +1,6 @@
 let unsorted = [];
 
-for (let index = 0, length = 400; index < length; index++){
+for (let index = 0, length = 10; index < length; index++){
     unsorted.push(Math.random() * length);
 }
 
@@ -9,12 +9,21 @@ function quickSort(array){
 
     let pivot = array.splice(Math.floor(Math.random() * array.length), 1);
   
+    let left = [];
+    let right = [];
+
+    array.forEach((element)=>{
+        (element <= pivot) ? left.push(element) : right.push(element);
+    });
+
+    return quickSort(left).concat(pivot, quickSort(right));
 }
 
 
-console.log("Pre Sort: ", unsorted.join(" ", "\n\n"));
+console.log("Pre Sort: ", unsorted.join(" "), "\n\n");
 let sorted = quickSort(unsorted);
-console.log("Post Sort: ", sorted.join(" ", "\n\n"));
+console.log
+console.log("Post Sort: ", sorted.join(" "));
 console.log("Sorted!!");  
 
 [2,4,3,7,10,1,5]
